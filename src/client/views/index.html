@@ -8,10 +8,10 @@
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
         <link rel="stylesheet" href="/styles/footer.css">
+
     </head>
 
     <body>
-
         <header>
             <div class="">
                 Logo
@@ -23,17 +23,22 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
+                <div class="form_group">
+                    <div>
+                        <input type="text" placeholder="fill url" id="url" name="url" ><br>
+                        <textarea id="feelings"></textarea> <br>
+                        <input  id = "generate"type="submit" value="generate">
+                      </div>
+                </div>
             <section>
 
             <section>
                 <strong>Form Results:</strong>
                 <div id="results"></div>
             </section>
+
         </main>
+    
 
         <footer>
             <p>This is a footer</p>
