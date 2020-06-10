@@ -1,9 +1,10 @@
 
-document.getElementById('generate').addEventListener('click', getWeatherData);
+document.getElementById('generate').addEventListener('click', textAnalysator);
 
-async function getWeatherData(){
 
-    let url =  document.getElementById('url').value;
+async function textAnalysator(){
+
+    let url =  document.getElementById('input_data').value;
 
     const response = await fetch('http://localhost:8080/anlize', {
 
@@ -24,9 +25,11 @@ async function getWeatherData(){
 
       try {
 
-        const newData = await response.json();
-  
+        let newData = await response.json()
+        window.gig =newData;
         console.log(newData);
+        
+        document.getElementById('result').innerHTML = newData.label;    
   
         return newData;
   
@@ -52,7 +55,7 @@ function handleSubmit(event) {
         return res.json()
     })
     .then(function(data) {
-        document.getElementById('results').innerHTML = data.message
+        
     })
 }
 

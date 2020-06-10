@@ -66,20 +66,20 @@ app.post('/anlize', function (req, res) {
 
 
   
-  textapi.sentiment({
-      'text': 'John is a very good football player!'
-    }, function(error, response) {
-      if (error === null) {
-        console.log(response);
-      }
-    });
+  // textapi.sentiment({
+  //     'text': 'John is a very good football player!'
+  //   }, function(error, response) {
+  //     if (error === null) {
+  //       console.log(response);
+  //     }
+  //   });
 
-    textapi.classify({
-        url: 'http://dating.com/'
-      }, function(error, response) {
-        if (error === null) {
-          response['categories'].forEach(function(c) {
-            console.log(c);
-          });
-        }
-      });
+  //   textapi.classify({
+  //       url: 'http://dating.com/'
+  //     }, function(error, response) {
+  //       if (error === null) {
+  //         response['categories'].forEach(function(c) {
+  //           console.log(c);
+  //         });
+  //       }
+  //     });
