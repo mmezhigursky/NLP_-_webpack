@@ -1,10 +1,19 @@
 
+import { urlChecker } from "./validator.js";
+
+
 document.getElementById('generate').addEventListener('click', textAnalysator);
+
 
 
 async function textAnalysator(){
 
     let url =  document.getElementById('input_data').value;
+
+    const validation = urlChecker(url);
+    console.log(validation);
+
+    if (validation===true){
 
     const response = await fetch('http://localhost:8080/anlize', {
 
@@ -29,7 +38,9 @@ async function textAnalysator(){
         window.gig =newData;
         console.log(newData);
         
-        document.getElementById('result').innerHTML = newData.label;    
+        document.getElementById('result').innerHTML = 'Category: ' + newData.label;
+        document.getElementById('confidence').innerHTML = 'Confidence: ' + newData.confidence;
+        document.getElementById('error').innerHTML = '';
   
         return newData;
   
@@ -38,26 +49,31 @@ async function textAnalysator(){
       console.log("error", error);
   
       }
+    } 
+    else{
+      document.getElementById('error').innerHTML = 'error, please make sure the url looks like this <strong>https://google.com</strong>';
+      document.getElementById('result').innerHTML = '';
+        document.getElementById('confidence').innerHTML = '';
+    }
+
   }
   
 
-function handleSubmit(event) {
-    event.preventDefault()
+// function handleSubmit(event) {
+//     event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
+//     // check what text was put into the form field
+//     let formText = document.getElementById('name').value
 
-    Client.checkForName(formText)
+//     Client.checkForName(formText)
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => {
-        return res.json()
-    })
-    .then(function(data) {
+//     console.log("::: Form Submitted :::")
+//     fetch('http://localhost:8080/test')
+//     .then(res => {
+//         return res.json()
+//     })
+//     .then(function(data) {
         
-    })
-}
-
-export { handleSubmit }
+//     })
+// }
 
