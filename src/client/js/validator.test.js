@@ -4,7 +4,7 @@ import { urlChecker } from "./validator.js";
 
 
   describe("URL checker", () => {
-    test("check on blank string and not allowed protocol", () => {
+    test("check string on blank and not allowed protocol", () => {
         
       const input = ["https://google.com", '',"google.com"]
 
