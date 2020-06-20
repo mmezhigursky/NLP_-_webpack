@@ -26,9 +26,6 @@ app.use(express.static('dist'))
 
 
 
-
-
-
 console.log(__dirname)
 
 var textapi = new AYLIENTextAPI({
@@ -49,7 +46,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-
+// API call to AYLIENT if success I return data to front-end
 app.post('/anlize', function (req, res) {
     console.log(req.body);
 
@@ -66,20 +63,3 @@ app.post('/anlize', function (req, res) {
 
 
   
-  // textapi.sentiment({
-  //     'text': 'John is a very good football player!'
-  //   }, function(error, response) {
-  //     if (error === null) {
-  //       console.log(response);
-  //     }
-  //   });
-
-  //   textapi.classify({
-  //       url: 'http://dating.com/'
-  //     }, function(error, response) {
-  //       if (error === null) {
-  //         response['categories'].forEach(function(c) {
-  //           console.log(c);
-  //         });
-  //       }
-  //     });
